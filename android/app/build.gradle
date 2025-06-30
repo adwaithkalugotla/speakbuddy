@@ -1,0 +1,62 @@
+plugins {
+    id("com.android.application")
+    id("kotlin-android")
+    id("dev.flutter.flutter-gradle-plugin") // Ensure this is applied after Android & Kotlin
+}
+
+android {
+    namespace = "com.example.speakbuddy"
+    compileSdk = 34 // Latest stable compile SDK version
+    ndkVersion = "25.1.8937393" // Explicit NDK version
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17  // ✅ Updated to Java 11
+        targetCompatibility JavaVersion.VERSION_17
+    }
+
+    kotlinOptions {
+        jvmTarget = "17" // ✅ Updated to match Java 11
+    }
+
+    defaultConfig {
+        applicationId = "com.example.speakbuddy"
+
+        // Explicitly set minSdkVersion to 21 (required for flutter_sound)
+        minSdk = 24
+        targetSdk = 34 // Latest stable Android version
+
+        versionCode = 1 // Update manually for each release
+        versionName = "1.0.0"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled true
+            shrinkResources true 
+            signingConfig signingConfigs.debug // Replace with your release signingConfig if available
+        }
+    }
+}
+
+flutter {
+    source = "../.."
+}
+
+dependencies {
+    implementation("androidx.annotation:annotation:1.6.0")
+
+    // Required dependencies
+    implementation("androidx.core:core-ktx:1.9.0")
+    implementation("androidx.appcompat:appcompat:1.6.1")
+    
+
+
+}
+
+allprojects {
+    repositories {
+        google()
+        mavenCentral()
+        maven { url 'https://storage.googleapis.com/download.flutter.io' } // ✅ Ensures dependencies resolve
+    }
+}

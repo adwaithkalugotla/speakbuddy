@@ -1,0 +1,39 @@
+name: speakbuddy
+description: "A new Flutter project."
+publish_to: 'none'
+version: 0.1.0
+
+environment:
+  sdk: ^3.5.3
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_sound: ^9.2.13 # For audio recording
+  permission_handler: ^11.0.1
+  dio: ^5.0.3           # For making HTTP requests
+  provider: ^6.0.0      # For state management
+  file_picker: ^8.0.0
+  http: ^0.13.5
+  share_plus: ^7.0.2
+  pdf: ^3.10.4
+  path_provider: ^2.1.2
+  #flutter_tts: ^3.6.3
+  open_file: ^3.3.2
+  
+
+  
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^4.0.0
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/audio/
+    - lib/assets/bg.jpg
+    - lib/assets/speakbuddy_logo.png
+    - assets/fonts/NotoSans-Regular.ttf
+
